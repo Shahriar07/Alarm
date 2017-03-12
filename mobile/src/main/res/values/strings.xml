@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">OfficeAlarm</string>
+    <string name="back"><![CDATA[<]]></string>
+    <string name="rewind"><![CDATA[<<]]></string>
+    <string name="forward"><![CDATA[>>]]></string>
+    <string name="pause">||</string>
+    <string name="alarm_on_off"> Alarm On/Off</string>
+</resources>
