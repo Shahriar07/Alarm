@@ -1,11 +1,13 @@
-package com.shahriar.hasan.officealarm;
+package com.shahriar.hasan.officealarm.Service;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.util.Log;
-import android.view.WindowManager;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by USER on 2/26/2017.
@@ -27,23 +29,23 @@ public class AlarmService extends IntentService {
         Log.d("AlarmActivity", "Preparing to send notification...: " + msg);
 
         // Disable wifi
-//        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-//        if(wifiManager.setWifiEnabled(false)){
-//            Log.d(TAG, "Wifi disabled ");
-//        }
+        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
+        if(wifiManager.setWifiEnabled(false)){
+            Log.d(TAG, "Wifi disabled ");
+        }
 
 
-        alarmNotificationManager = (NotificationManager) this
-                .getSystemService(Context.NOTIFICATION_SERVICE);
-
-        Intent activityIntent =  new Intent(this, AlarmDialogActivity.class);
-        activityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        activityIntent.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
-                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
-                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|
-                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
-        startActivity(activityIntent);
+//        alarmNotificationManager = (NotificationManager) this
+//                .getSystemService(Context.NOTIFICATION_SERVICE);
+//
+//        Intent activityIntent =  new Intent(this, AlarmDialogActivity.class);
+//        activityIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+//                | Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+//        activityIntent.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON|
+//                WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD|
+//                WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED|
+//                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+//        startActivity(activityIntent);
 
 
 

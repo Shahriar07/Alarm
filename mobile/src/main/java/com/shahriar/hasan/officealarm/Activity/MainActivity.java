@@ -1,4 +1,4 @@
-package com.shahriar.hasan.officealarm;
+package com.shahriar.hasan.officealarm.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.shahriar.hasan.officealarm.R;
+import com.shahriar.hasan.officealarm.Service.AlarmService;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.shahriar.hasan.officealarm;
+package com.shahriar.hasan.officealarm.Activity;
 
 import android.app.Activity;
 import android.media.Ringtone;
@@ -7,6 +7,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
+import com.shahriar.hasan.officealarm.R;
 
 /**
  * Created by USER on 3/11/2017.
