@@ -2,12 +2,9 @@ package com.shahriar.hasan.officealarm.Service;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
-import android.content.Context;
 import android.content.Intent;
-import android.net.wifi.WifiManager;
 import android.util.Log;
-
-import static android.content.ContentValues.TAG;
+import com.shahriar.hasan.officealarm.Utility.Utility;
 
 /**
  * Created by USER on 2/26/2017.
@@ -26,13 +23,10 @@ public class AlarmService extends IntentService {
     }
 
     private void sendNotification(String msg) {
-        Log.d("AlarmActivity", "Preparing to send notification...: " + msg);
+        Log.d(Utility.TAG, "Preparing to send notification...: " + msg);
 
         // Disable wifi
-        WifiManager wifiManager = (WifiManager) this.getSystemService(Context.WIFI_SERVICE);
-        if(wifiManager.setWifiEnabled(false)){
-            Log.d(TAG, "Wifi disabled ");
-        }
+
 
 
 //        alarmNotificationManager = (NotificationManager) this

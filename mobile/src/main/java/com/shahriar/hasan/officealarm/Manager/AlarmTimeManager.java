@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.shahriar.hasan.officealarm.Receiver.AlarmReceiver;
+import com.shahriar.hasan.officealarm.Utility.Utility;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -46,15 +47,19 @@ public class AlarmTimeManager {
 
     public  void setAlarm (int index, boolean isTomorrow){
         Calendar calendar = Calendar.getInstance();
+        long currentTime = calendar.getTimeInMillis();
         calendar.set(Calendar.HOUR_OF_DAY, hourArray[index]);
-        if (isTomorrow) {
-            calendar.add(Calendar.DAY_OF_YEAR, 1);
-        }
         long time = calendar.getTimeInMillis();
+        Log.d(Utility.TAG, "Current time " + currentTime + " requested time " + time);
+        if (isTomorrow || (time < currentTime)) {
+            calendar.add(Calendar.DAY_OF_YEAR, 1);
+            time = calendar.getTimeInMillis();
+            Log.d(Utility.TAG, "Current time " + currentTime + " Updated requested time " + time);
+        }
         Date tomorrow = calendar.getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy");
         String tomorrowAsString = dateFormat.format(tomorrow);
-        Log.d("AlarmService", "Set alarm for index " + index + " With time " + tomorrowAsString);
+        Log.d(Utility.TAG, "Set alarm for index " + index + " With time " + tomorrowAsString);
         SharedPreferenceManager.setAlarmId(context,index,ALARM_ID+index);
         Intent alarmIntent = new Intent(context, AlarmReceiver.class);
         alarmIntent.putExtra(ALARM_INDEX,index);
@@ -63,7 +68,7 @@ public class AlarmTimeManager {
     }
 
     public  void cancelAlarm (int index){
-        Log.d("AlarmService", "Cancel alarm for index " + index);
+        Log.d(Utility.TAG, "Cancel alarm for index " + index);
         SharedPreferenceManager.setAlarmId(context,index,-1);
         Intent alarmIntent = new Intent(context, AlarmReceiver.class);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID + index, alarmIntent, 0);

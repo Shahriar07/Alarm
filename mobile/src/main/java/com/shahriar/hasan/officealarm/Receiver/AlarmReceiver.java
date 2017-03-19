@@ -1,15 +1,13 @@
 package com.shahriar.hasan.officealarm.Receiver;
 
-import android.app.Activity;
 import android.app.NotificationManager;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.WakefulBroadcastReceiver;
 import android.util.Log;
 
 import com.shahriar.hasan.officealarm.Manager.AlarmTimeManager;
-import com.shahriar.hasan.officealarm.Service.AlarmService;
+import com.shahriar.hasan.officealarm.Utility.Utility;
 
 /**
  * Created by USER on 3/2/2017.
@@ -23,7 +21,7 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
 //        AlarmActivity instance = AlarmActivity.getInstance();
 //        instance.setAlarmText("Alarm!!!");
         int index = intent.getIntExtra(AlarmTimeManager.ALARM_INDEX, 0);
-        Log.d("AlarmActivity", "AlarmReceiver onReceive");
+        Log.d(Utility.TAG, "AlarmReceiver onReceive");
         AlarmTimeManager.getAlarmTimeManagerInstance(context).setAlarm(index,true);
 //        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
 //        if (alarmUri == null) {
@@ -32,11 +30,17 @@ public class AlarmReceiver extends WakefulBroadcastReceiver {
 //        Ringtone ringtone = RingtoneManager.getRingtone(context.getApplicationContext(), alarmUri);
 //        Log.d("AlarmActivity", "ringtone Set " + ringtone);
 //        ringtone.play();
+        Utility.stopWifi(context);
 
-        ComponentName comp = new ComponentName(context.getPackageName(),
-                AlarmService.class.getName());
-        startWakefulService(context, (intent.setComponent(comp)));
-        setResultCode(Activity.RESULT_OK);
+
+
+        //Call Service to do some task
+//        ComponentName comp = new ComponentName(context.getPackageName(),
+//                AlarmService.class.getName());
+//        startWakefulService(context, (intent.setComponent(comp)));
+//        setResultCode(Activity.RESULT_OK);
+
+
 
 //        Intent myIntent = new Intent(context, AlarmDialogActivity.class);
 //        PendingIntent pendingIntent = PendingIntent.getActivity(
