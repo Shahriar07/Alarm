@@ -1,99 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:weightSum="3">
 
     <RelativeLayout
-        android:layout_marginTop="50dp"
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/layoutMorning10">
-        <TextView
-            android:text="02:00 AM"
-            android:layout_width="190dp"
-            android:layout_centerVertical="true"
-            android:layout_height="match_parent"
-            android:id="@+id/morning10"
-            android:gravity="center_vertical" />
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/iconView"
+        android:layout_weight="0.75">
 
-        <CheckBox
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/morning10"
-            android:layout_centerVertical="true"
-            android:onClick="onToggleClicked"
-            android:layout_marginLeft="3dp"
-            android:id="@+id/Checkbox1" />
+
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="@string/introduction_text"
+            android:clickable="false"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:textAlignment="center"
+            android:textSize="20sp" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:layout_width="230dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/layoutMorning10"
-        android:id="@+id/layoutNoon2">
-        <TextView
-            android:text="04:00 AM"
-            android:layout_width="190dp"
-            android:layout_height="match_parent"
-            android:id="@+id/noon2"
-            android:gravity="center_vertical" />
+        android:layout_height="0dp"
+        android:layout_weight="2.25">
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/noon2"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="3dp"
-            android:onClick="onToggleClicked"
-            android:gravity="center_vertical"
-            android:id="@+id/Checkbox2" />
+        <RelativeLayout
+            android:id="@+id/layoutMorning10"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_weight="2">
+
+            <TextView
+                android:id="@+id/morning02"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="02:00 AM"
+                android:textColor="@android:color/black" />
+
+            <com.shahriar.hasan.officealarm.Custom_UI.CustomCheckbox
+                android:id="@+id/Checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/morning02" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/layoutNoon2"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/layoutMorning10"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/morning04"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="04:00 AM"
+                android:textColor="@android:color/black" />
+
+            <com.shahriar.hasan.officealarm.Custom_UI.CustomCheckbox
+                android:id="@+id/Checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/morning04"
+                android:gravity="center_vertical"
+                android:onClick="onToggleClicked" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutNight2"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/layoutNoon2"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/morning10"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+
+                android:text="10:00 AM"
+                android:textColor="@android:color/black" />
+
+            <com.shahriar.hasan.officealarm.Custom_UI.CustomCheckbox
+                android:id="@+id/Checkbox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/morning10"
+                android:onClick="onToggleClicked" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/layoutNight4"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/layoutNight2"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:id="@+id/noon2"
+                android:layout_width="160dp"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="02:00 PM"
+                android:textColor="@android:color/black" />
+
+            <com.shahriar.hasan.officealarm.Custom_UI.CustomCheckbox
+                android:id="@+id/Checkbox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/noon2"
+                android:onClick="onToggleClicked" />
+        </RelativeLayout>
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/layoutNoon2"
-        android:id="@+id/layoutNight2">
-        <TextView
-            android:text="10:00 AM"
-            android:layout_width="190dp"
-            android:gravity="center_vertical"
-            android:layout_height="match_parent"
-            android:id="@+id/night2" />
 
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/night2"
-            android:layout_centerVertical="true"
-            android:onClick="onToggleClicked"
-            android:layout_marginLeft="3dp"
-            android:id="@+id/Checkbox3" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="230dp"
-        android:layout_height="40dp"
-        android:layout_below="@+id/layoutNight2"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/layoutNight4">
-        <TextView
-            android:text="02:00 PM"
-            android:layout_width="190dp"
-            android:layout_height="match_parent"
-            android:id="@+id/night4"
-            android:gravity="center_vertical" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/night4"
-            android:layout_centerVertical="true"
-            android:onClick="onToggleClicked"
-            android:layout_marginLeft="3dp"
-            android:id="@+id/Checkbox4" />
-    </RelativeLayout>
-
-
-</RelativeLayout>
+</LinearLayout>

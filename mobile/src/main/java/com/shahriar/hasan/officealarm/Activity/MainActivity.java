@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             tx1 = (TextView)findViewById(R.id.textView2);
             tx2 = (TextView)findViewById(R.id.textView3);
             tx3 = (TextView)findViewById(R.id.textView4);
-            tx3.setText("mac_gyver.mp3");
+//            tx3.setText("mac_gyver.mp3");
 
 
 
